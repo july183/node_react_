@@ -4,7 +4,7 @@
     <select id="interview">
         select 
             *
-        from bby_preinterview.conent_interview
+        from introduce.conent_interview
     </select>
     <select id="portfolio">
         select 
@@ -15,7 +15,56 @@
             ,  imgSrc
             ,  imgWidth
             ,  imgHeight            
-        from bby_preinterview.portfolio
+        from introduce.conent_interview
     </select>    
+    <insert id="interviewInsert">
+        insert into 
+            introduce.conent_interview(
+                subject_
+                , content
+            )
+            value (
+                '제목자리'
+                , '내용자리'
+            );
+    </insert>
+       <!-- 아래는 예시 -->
+    
+    <update id="interviewModify">
+    
+    </update>
+    <select id="meetingArrange">
+        select 
+            no
+            ,  category
+            ,  subject
+            ,  content
+            ,  imgSrc
+            ,  imgWidth
+            ,  imgHeight            
+        from introduce.meetingArrange
+    </select>
+
+    <insert id="meetinArrangegInsert">
+        insert into 
+            introduce.review(
+                subject_
+                , content
+                <if test="isimgSrc != '' && isimgSrc != null">
+                , imgSrc
+                , imgidentity
+                </if>
+                , data
+            )
+            value (
+                '제목자리'
+                , '내용자리'
+                <if test="isimgSrc != '' && isimgSrc != null">
+                , #{isimgSrc}
+                , #{isimgidentity}
+                </if>
+                , '개발코드'
+            );
+    </insert>
 </mapper>
 
