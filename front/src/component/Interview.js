@@ -5,7 +5,7 @@ const Interview = (props) => {
     const [typeData,insertDB] = useState(0);   
    
     const interviewDataSetting = async () => {                      
-                             await axios.get(`/prointerview?type=${props.botable}`)
+                             await axios.post(`/prointerview?type=${props.botable}`, {}) //await axios.get(`/prointerview?type=${props.botable}`) get과 post 약간의 차이가 있다. post는 중구난방이기에 담을 곳을 만들어 준다.
                                         .then(
                                             (result) => {  
                                                 try{  
